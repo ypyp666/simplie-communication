@@ -21,7 +21,7 @@ signals:
     void loginTimeout();
 
 public slots:
-    // TcpClient 信号由主后端统一路由后调用（不再直连信号）
+    // TcpClient 的连接状态回调，由 MainBackend 统一路由后直接调用（所以放 public）
     void onTcpConnected();
     void onTcpDisconnected();
     void onTcpError(QAbstractSocket::SocketError error);

@@ -19,14 +19,16 @@ public:
     ~MainBackend();
 
     ChatBackend* getChatBackend();
-    // 获取当前登录账号ID（login() 里已存到 m_userid，登录成功后即可取到真实账号）
-    QString currentUserId() const { return m_userid; }
     TcpClient* m_tcpClient;
     QString m_userid;
     QString m_password;  
-    // 全局登录状态：静态成员，跨断线重连保持（断线后重连上若已登录过则直接拉取，无需重新登录）
-    static bool s_loggedIn;
+    bool m_loginCompleted; // 登录是否已完成，避免重复登录和无限重连
     DatabaseManager* m_databaseManager;
+
+    static bool s_loggedIn;  // 全局登录状态（定义在 MainBackend.cpp），TCP 断线重连时判断要不要自动重连
+
+    // 获取当前登录账号ID（登录成功后 m_userid 由登录流程写入，UI 通过它拿真实账号）
+    QString currentUserId() const { return m_userid; }
 
 
 signals:

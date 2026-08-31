@@ -30,6 +30,7 @@ void LoginBackend::startLogin(const QString& accountId, const QString& password)
     
     // 连接服务器（异步操作）
     m_tcpClient->connectToServer("192.168.20.128", 8899);
+    emit loginWaiting();
 }
 
 void LoginBackend::sendLoginRequest()

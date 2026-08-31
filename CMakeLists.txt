@@ -81,9 +81,12 @@ add_executable(ChatUI
     src/MessageStatusIndicator.cpp # 消息状态指示器实现（发送中旋转圆圈/失败感叹号）
     src/ChatInput.cpp            # 输入框实现
     src/StatusBar.cpp            # 状态栏实现
-    src/LoginWindow.cpp          # 登录窗口实现
+    src/LoginWindow.cpp          # 登录窗口容器（QStackedWidget 装三个页面）
+    src/LoginPage.cpp            # 登录页实现
+    src/RegisterPage.cpp         # 注册页实现
+    src/ForgotPasswordPage.cpp   # 忘记密码页实现
     src/MainBackend.cpp        # 主后端实现
-    
+    resources.qrc             # Qt 资源文件（图标）
 
     backend/DatabaseManager.cpp       # 数据库管理实现
     backend/ChatBackend.cpp          # 后端接口实现
@@ -101,6 +104,9 @@ add_executable(ChatUI
     include/ChatInput.h
     include/StatusBar.h
     include/LoginWindow.h
+    include/LoginPage.h
+    include/RegisterPage.h
+    include/ForgotPasswordPage.h
     include/MainBackend.h
 
     include_backend/ChatBackend.h

@@ -81,9 +81,10 @@ void TcpClient::disconnectFromServer()
     
     if (m_socket->state() != QAbstractSocket::UnconnectedState) {
         m_socket->disconnectFromHost();
+        m_socket->waitForDisconnected();
     }
            //waitForDisconnected()主动阻塞等待连接断开 等待套接字关闭，确保所有数据发送完毕
-        m_socket->waitForDisconnected();
+
 }
 
 void TcpClient::sendData(const QByteArray& data)
