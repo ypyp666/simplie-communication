@@ -1,6 +1,6 @@
 # AGENTS.md
 
-C++20 TCP server (single executable `untitled`) that accepts newline-delimited JSON over raw sockets, dispatches to MySQL-backed business handlers, and replies with JSON. Developed in CLion. Not a git repo.
+C++20 TCP server (single executable `untitled`) that accepts newline-delimited JSON over raw sockets, dispatches to MySQL-backed business handlers, and replies with JSON. Developed in CLion.
 
 ## Layout quirks
 - Sources live in `scr/` (not `src/`); headers in `include/`; nlohmann json vendored at `nlohmann/json.hpp`.
